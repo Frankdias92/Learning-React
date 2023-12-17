@@ -1,0 +1,19 @@
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height: 2rem;
+  background-color: #3e3e3e;
+  color: #fff;
+}
+
+ul {
+  display: flex;
+  gap: 1.5rem;
+}
+
+ul li {
+  list-style: none;
+}
