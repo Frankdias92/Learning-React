@@ -7,7 +7,7 @@ export function Header() {
     <header>
       <nav>
         <ul>
-          <li>UseState</li>
+          <li><a href="/">UseState</a></li>
           <li><a href="/useeffect">UseEffect</a></li>
           <li>UseMemo</li>
           <li>UseRef</li>

@@ -17,3 +17,13 @@ ul {
 ul li {
   list-style: none;
 }
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+a:hover {
+  border-bottom: 3px solid rgb(115, 0, 255);
+  transition: .3s;
+}
