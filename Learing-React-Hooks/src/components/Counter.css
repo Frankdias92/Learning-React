@@ -1,0 +1,22 @@
+.counter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: .75rem;
+}
+
+.counterState {
+  margin: auto;
+}
+
+button {
+  padding: .5rem 1rem;
+  border-radius: 5px;
+  background-color: #bbbbbb;
+  font-size: medium;
+  font-weight: 300;
+}
+
+span {
+  padding: 0 1.5rem;
+}
