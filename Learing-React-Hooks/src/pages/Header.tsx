@@ -12,7 +12,7 @@ export function Header() {
           <li><a href="/memo">UseMemo</a></li>
           <li><a href="/useref">UseRef</a></li>
           <li>useContext</li>
-          <li>useReducer</li>
+          <li><a href="/usereducer">useReducer</a></li>
         </ul>
       </nav>
     </header>

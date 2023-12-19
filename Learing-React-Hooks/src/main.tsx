@@ -6,6 +6,7 @@ import { UseState } from './pages/UseState'
 import { UseEffect } from './pages/UseEffect'
 import { UseMemo } from './pages/UseMemo'
 import { UseRef } from './pages/UseRef'
+import { UseReducer } from './pages/UseReducer'
 
 
 const router = createBrowserRouter([
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: '/useref',
         element: <UseRef />
+      },
+      {
+        path: '/usereducer',
+        element: <UseReducer />
       }
     ]
   },
