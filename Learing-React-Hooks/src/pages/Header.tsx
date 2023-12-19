@@ -9,8 +9,8 @@ export function Header() {
         <ul>
           <li><a href="/">UseState</a></li>
           <li><a href="/useeffect">UseEffect</a></li>
-          <li><a href="memo">UseMemo</a></li>
-          <li>UseRef</li>
+          <li><a href="/memo">UseMemo</a></li>
+          <li><a href="/useref">UseRef</a></li>
           <li>useContext</li>
           <li>useReducer</li>
         </ul>

@@ -5,6 +5,7 @@ import { Root } from './routes/root'
 import { UseState } from './pages/UseState'
 import { UseEffect } from './pages/UseEffect'
 import { UseMemo } from './pages/UseMemo'
+import { UseRef } from './pages/UseRef'
 
 
 const router = createBrowserRouter([
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: '/memo',
         element: <UseMemo />
+      },
+      {
+        path: '/useref',
+        element: <UseRef />
       }
     ]
   },
