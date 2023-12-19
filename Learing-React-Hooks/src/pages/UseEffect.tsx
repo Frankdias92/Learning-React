@@ -6,9 +6,13 @@ export function UseEffect() {
   const [dados, setDados] = useState([])
   
   useEffect(() => {
-    fetch(`https://jsonplaceholder.typicode.com/${resourceType}`)
-      .then(response => response.json())
-      .then(json => setDados(json))
+    const fetchResourceType = async () => {
+      const response = await fetch(`https://jsonplaceholder.typicode.com/${resourceType}`)
+      const responseJSON = await response.json()
+
+      setDados(responseJSON)
+    }
+    fetchResourceType()
   }, [resourceType])
 
 

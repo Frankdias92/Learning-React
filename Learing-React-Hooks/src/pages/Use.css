@@ -4,3 +4,31 @@ useState {
   justify-content: center;
   align-items: center;
 }
+.container {
+  display: flex;
+  justify-content: center;
+}
+.useMemo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: .75rem;
+}
+
+.useMemo input[type=number] {
+  font-family: sans-serif;
+  max-width: 5rem;
+  padding: .5rem;
+  border: 1px solid #d3d3d3;
+  border-width: 2px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.useMemo .doubleNumber {
+  width: 100%;
+  text-align: center;
+
+  border-radius: 6px;
+}

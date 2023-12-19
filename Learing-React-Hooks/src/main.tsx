@@ -4,6 +4,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import { Root } from './routes/root'
 import { UseState } from './pages/UseState'
 import { UseEffect } from './pages/UseEffect'
+import { UseMemo } from './pages/UseMemo'
 
 
 const router = createBrowserRouter([
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
       {
         path: '/useeffect',
         element: <UseEffect />
+      },
+      {
+        path: '/memo',
+        element: <UseMemo />
       }
     ]
   },
