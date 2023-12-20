@@ -33,6 +33,20 @@
   border-radius: 6px;
 }
 
+.useContext {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 
-
+  font-size: 1rem;
+}
+.useContext div {
+  padding: 1rem;
+  border-radius: 20px;
+}
+.useContext div button {
+  margin-top: 1rem;
+  background-color: #ddd;
+  cursor: pointer;
+}
 
