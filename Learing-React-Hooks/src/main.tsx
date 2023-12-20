@@ -9,7 +9,8 @@ import { UseRef } from './pages/UseRef'
 import { UseReducer } from './pages/UseReducer'
 import { UseContext } from './pages/UseContext'
 import { UseCallback } from './pages/useCallback'
-import UseLayoutEffect from './pages/useLayoutEffect'
+import UseLayoutEffect from './pages/UseLayoutEffect'
+import { Memo } from './components/useMemo.tsx/Memo'
 
 
 const router = createBrowserRouter([
@@ -51,6 +52,11 @@ const router = createBrowserRouter([
       },
     ]
   },
+  {
+    path: '/usememo',
+    element: <Memo />
+  }
+  
 ])
 
 
