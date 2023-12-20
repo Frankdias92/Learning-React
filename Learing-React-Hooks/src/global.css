@@ -33,6 +33,24 @@
   border-radius: 6px;
 }
 
+.dadosPosition {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 900px;
+  height: 400px;
+  border-radius: 6px;
+  color: #fff;
+
+  margin: 0 -30%;
+
+  font-size: 16px;
+
+  top: 350px;
+  overflow-y: scroll;
+  gap: 1.5rem;
+}
+
 .useContext {
   display: flex;
   flex-direction: column;
