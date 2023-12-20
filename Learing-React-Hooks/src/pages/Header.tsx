@@ -14,6 +14,7 @@ export function Header() {
           <li><a href="/usecontext">useContext</a></li>
           <li><a href="/usereducer">useReducer</a></li>
           <li><a href="/usecallback">useCallback</a></li>
+          <li><a href="/layoutEffect">LayoutEffect</a></li>
         </ul>
       </nav>
     </header>

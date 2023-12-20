@@ -68,3 +68,7 @@
   cursor: pointer;
 }
 
+.layourEffect {
+  display: flex;
+  gap: 3rem;
+}

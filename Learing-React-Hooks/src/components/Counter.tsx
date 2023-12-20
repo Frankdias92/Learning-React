@@ -15,9 +15,9 @@ export function Counter() {
   return (
     <div className="counter">
       <div className="counterState">
-        <button onClick={() => changeCount(1)}>+</button>
-        <span>{count}</span>
         <button onClick={() => changeCount(-1)}>-</button>
+        <span>{count}</span>
+        <button onClick={() => changeCount(1)}>+</button>
       </div>
       <button onClick={() => resetCount()} >Reset</button>
     </div>

@@ -18,7 +18,7 @@ export function UseCallback() {
   
   return (
     <div>
-      <input value={text} onChange={(e) => setText(e.target.value)} />
+      <input placeholder="Search" value={text} onChange={(e) => setText(e.target.value)} />
 
       <button onClick={() => setResourceType('posts')}>Posts</button>
       <button onClick={() => setResourceType('comments')}>Comments</button>
