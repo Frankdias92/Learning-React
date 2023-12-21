@@ -1,6 +1,6 @@
-import { Greeting } from "../components/context/Greeting";
-import { Message } from "../components/context/Message";
-import { ThemeContextProvider } from "../components/context/ThemeContext";
+import { Greeting } from "../../components/context/Greeting";
+import { Message } from "../../components/context/Message";
+import { ThemeContextProvider } from "../../components/context/ThemeContext";
 
 
 

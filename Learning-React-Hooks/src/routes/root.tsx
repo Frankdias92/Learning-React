@@ -6,7 +6,7 @@ import '../global.css'
 
 export function Root() {
   return (
-    <section className="wrapper">
+    <section className="container">
       <Header />
 
       <div className="layout">

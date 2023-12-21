@@ -1,0 +1,29 @@
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height: 2rem;
+  background-color: #3e3e3e;
+  color: #fff;
+}
+
+header ul {
+  display: flex;
+  gap: 1.5rem;
+}
+
+header ul li {
+  list-style: none;
+}
+
+header a {
+  text-decoration: none;
+  color: #fff;
+}
+
+header a:hover {
+  border-bottom: 3px solid rgb(115, 0, 255);
+  transition: .3s;
+}

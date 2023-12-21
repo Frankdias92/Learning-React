@@ -1,0 +1,181 @@
+*{
+  border: 0;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+
+  font-family: 'Poppins', sans-serif;
+}
+
+:root {
+  --btn-primary : #2ab861;
+  --color-bg: #2E2B33;
+  --color-1: #342A42;
+  --color-2: #5D09DB;
+  --color-3: #4E3475;
+  --color-4: #4E3475;
+  --color-5: #5C28A8;
+
+  
+}
+
+button {
+  width: auto;
+	box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
+  background: var(--btn-primary);
+	border: 0;
+	outline: 0;
+	padding: 1rem 1.5rem;
+  border-radius: 6px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background: var(--color-bg);
+  gap: 1.5rem;
+}
+.layout {
+  display: flex;
+  padding: 1.5rem 2rem;
+  margin: auto;
+}
+.wrapper {
+  display: flex;
+  align-items: center;
+  margin: auto;
+  gap: 1rem;
+}
+
+.item-wrapper {
+  display: flex;
+  margin: auto;
+  background-color: var(--color-1);
+  padding: 2rem;
+  border-radius: 20px;
+  gap: 1rem;
+}
+
+.form-field {
+  width: auto;
+	box-shadow: 0 6px 10px 0 rgba(0, 0, 0 , .1);
+	border: 0;
+	outline: 0;
+	padding: 1rem .3rem 1rem 1.5rem;
+  border-radius: 6px;
+}
+
+.valueText {
+  display: flex;
+  margin: auto;
+  padding: 1rem;
+  border-radius: 6px;
+}
+
+.list-wrapper {
+  display: grid;
+  grid-template-columns: 25rem 1fr;
+}
+
+ul {
+  list-style: none;
+  margin: 0 1.5rem;
+}
+li {
+  display: flex;
+  background-color: var(--color-5);
+  margin: .3rem 0;
+  padding: .5rem 1rem;
+
+}
+
+
+.list-ul {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.list-text {
+  display: flex;
+  
+}
+
+
+/* 
+.dadosPosition {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 900px;
+  height: 400px;
+  border-radius: 6px;
+  color: #fff;
+
+  margin: 0 -30%;
+
+  font-size: 16px;
+
+  top: 350px;
+  overflow-y: scroll;
+  gap: 1.5rem;
+}
+
+.useContext {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  font-size: 1rem;
+}
+.useContext div {
+  padding: 1rem;
+  border-radius: 20px;
+}
+.useContext div button {
+  margin-top: 1rem;
+  background-color: #ddd;
+  cursor: pointer;
+}
+
+.layourEffect {
+  display: flex;
+  gap: 3rem;
+}
+
+useState {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.container {
+  display: flex;
+  justify-content: center;
+}
+.useMemo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: .75rem;
+}
+
+.useMemo input[type=number] {
+  font-family: sans-serif;
+  max-width: 5rem;
+  padding: .5rem;
+  border: 1px solid #d3d3d3;
+  border-width: 2px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.useMemo .doubleNumber {
+  width: 100%;
+  text-align: center;
+
+  border-radius: 6px;
+} */

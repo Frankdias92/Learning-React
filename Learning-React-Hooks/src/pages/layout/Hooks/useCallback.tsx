@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react"
 
-import List from "../components/List"
+import List from "../../../components/List"
 
 export function UseCallback() {
   const [text, setText] = useState('')

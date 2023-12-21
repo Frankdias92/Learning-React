@@ -1,5 +1,5 @@
-import { Counter } from "../components/Counter";
-import Modal from "../components/Modal";
+import { Counter } from "../../components/Counter";
+import Modal from "../../components/Modal";
 
 const UseLayoutEffect = () => {
 

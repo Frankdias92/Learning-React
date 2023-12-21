@@ -2,14 +2,14 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import { Root } from './routes/root'
-import { UseState } from './pages/layout/UseState'
-import { UseEffect } from './pages/layout/UseEffect'
-import { UseMemo } from './pages/layout/UseMemo'
-import { UseRef } from './pages/layout/UseRef'
-import { UseReducer } from './pages/layout/UseReducer'
-import { UseContext } from './pages/layout/UseContext'
-import { UseCallback } from './pages/layout/useCallback'
-import UseLayoutEffect from './pages/layout/UseLayoutEffect'
+import { UseState } from './pages/layout/Hooks/UseState'
+import { UseEffect } from './pages/layout/Hooks/UseEffect'
+import { UseMemo } from './pages/layout/Hooks/UseMemo'
+import { UseRef } from './pages/layout/Hooks/UseRef'
+import { UseReducer } from './pages/layout/Hooks/UseReducer'
+import { UseContext } from './pages/layout/Hooks/UseContext'
+import { UseCallback } from './pages/layout/Hooks/useCallback'
+import UseLayoutEffect from './pages/layout/Hooks/UseLayoutEffect'
 import { Memo } from './pages/useMemo/Memo'
 
 
@@ -28,7 +28,13 @@ const router = createBrowserRouter([
       },
       {
         path: '/memo',
-        element: <UseMemo />
+        element: <UseMemo />,
+        children: [
+          {
+            path: '/memo/usememo',
+            element: <Memo />
+          }
+        ]
       },
       {
         path: '/useref',
@@ -51,10 +57,6 @@ const router = createBrowserRouter([
         element: <UseLayoutEffect />
       },
     ]
-  },
-  {
-    path: '/usememo',
-    element: <Memo />
   }
   
 ])
