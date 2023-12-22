@@ -4,7 +4,7 @@ import Modal from "../../../components/Modal";
 const UseLayoutEffect = () => {
 
   return (
-    <div className="layourEffect">
+    <div className="item-wrapper">
       <Counter />
       <Modal />
     </div>

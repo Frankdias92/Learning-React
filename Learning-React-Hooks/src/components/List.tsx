@@ -19,6 +19,7 @@ const List = ({ getItems }: ListProps) => {
       .catch((error) => console.error('Erro ao obter itens', error))
   }, [getItems])
 
+
   return (
     <ul className="">
       {items.length > 0 ? (

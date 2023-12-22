@@ -13,7 +13,5 @@ export function Root() {
         <Outlet />
       </div>
     </section>
-
-
   )
 }

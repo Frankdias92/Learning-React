@@ -15,17 +15,17 @@ const Modal = () => {
   }, [show]);
 
   return (
-    <>
+    <div className="container">
       <button ref={button} onClick={() => setShow((prev) => !prev)}>
         Toggle Modal
       </button>
 
       {show && (
-        <div style={{ position: "absolute" }} ref={popup}>
+        <div className="valueText" ref={popup}>
           Hello from modal!
         </div>
       )}
-    </>
+    </div>
   );
 };
 
