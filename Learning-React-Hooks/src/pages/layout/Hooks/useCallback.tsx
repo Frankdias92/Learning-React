@@ -6,6 +6,7 @@ export function UseCallback() {
   const [text, setText] = useState('')
   const [resourceType, setResourceType] = useState('post')
   
+  
   const getItems = useCallback(async () => {
     console.log('getItems is being called"')
     const response = await fetch(
@@ -17,14 +18,18 @@ export function UseCallback() {
   }, [resourceType])
   
   return (
-    <div>
-      <input placeholder="Search" value={text} onChange={(e) => setText(e.target.value)} />
+    <div className="container">
+      <div className="item-wrapper">
+        <input className="form-field" placeholder="Search" value={text} onChange={(e) => setText(e.target.value)} />
 
-      <button onClick={() => setResourceType('posts')}>Posts</button>
-      <button onClick={() => setResourceType('comments')}>Comments</button>
-      <button onClick={() => setResourceType('todos')}>Todos</button>
-    
+        <button onClick={() => setResourceType('posts')}>Posts</button>
+        <button onClick={() => setResourceType('comments')}>Comments</button>
+        <button onClick={() => setResourceType('todos')}>Todos</button>
+      </div>
+
+      <div className="wrapper-effect">
       <List getItems={getItems} />
+      </div>
     </div>
   )
 }

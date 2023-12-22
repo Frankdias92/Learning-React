@@ -12,13 +12,11 @@ export function Counter() {
   }
 
   return (
-    <div className="counter">
-      <div className="counterState">
+    <li className="wrapper">
         <button onClick={() => changeCount(-1)}>-</button>
-        <span>{count}</span>
+        <span className="valueText">{count}</span>
         <button onClick={() => changeCount(1)}>+</button>
-      </div>
       <button onClick={() => resetCount()} >Reset</button>
-    </div>
+    </li>
   )
 }

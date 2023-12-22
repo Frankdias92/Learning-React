@@ -5,7 +5,7 @@ export const Greeting = () => {
   return (
     <ThemeContext.Consumer>
       {(value) => (
-        <div style={{
+        <div className="valueText" style={{
           backgroundColor: value.theme === 'light' ? '#eee' : '#333',
           color: value.theme === 'dark' ?  '#eee' : '#333',
           }}

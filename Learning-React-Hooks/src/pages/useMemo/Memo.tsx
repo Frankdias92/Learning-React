@@ -2,11 +2,11 @@ import { useCallback, useMemo, useState } from "react"
 import { Item } from "../../components/Item"
 
 
-
 export function Memo() {
   const [items, setItems] = useState<string[]>([])
   const [newItem, setNewItem] = useState('')
   const [wishlist, setWishlist] = useState<string[]>([])
+
 
   function addItemToList() {
     setItems([...items, newItem])
@@ -32,26 +32,24 @@ export function Memo() {
       </div>
       
       <div className="list-wrapper">
-      <ul className="list-ul">
-        {items.map(item => (
-          <li key={item}>
-              <Item title={item} onAddToWishlist={addItemToWishlist}/>
-          </li>
-        ))}
-      </ul>
-
-        <ul>
+        
+        <ul className="list-ul">
+          {items.map(item => (
+            <Item key={item} title={item} onAddToWishlist={addItemToWishlist}/>
+          ))}
+        </ul>
+        
+        <ul className=".list-ul">
           <div className="list-text">
             <h2>Whis List - {contItemsWithOne.toString()}</h2>
-            {wishlist.map(wishlist => {
-              return <li key={wishlist}>
+            {wishlist.map(wishlist => (
+              <li className="li-wrapper" key={wishlist}>
                   {wishlist}
-                </li> })}
+                </li> ))}
           </div>
         </ul>
-      </div>
-      
 
+      </div>
     </div>
   )
 }

@@ -1,9 +1,18 @@
 import { useEffect, useState } from "react"
 import './UseEffect.css'
 
+type MeuTipo = {
+  id: number;
+  name: string;
+  username: string;
+  website: string;
+  email: string;
+  title: string;
+};
+
 export function UseEffect() {
   const [resourceType, setResourceType] = useState('posts')
-  const [dados, setDados] = useState([])
+  const [dados, setDados] = useState<MeuTipo[]>([])
   
   useEffect(() => {
     const fetchResourceType = async () => {
@@ -17,19 +26,33 @@ export function UseEffect() {
 
 
   return (
-    <div className="wrapperEffect">
-      <div className="btnEffect">
-        <button onClick={() => setResourceType('posts')} >Posts</button>
-        <button onClick={() => setResourceType('users')} >Users</button>
-        <button onClick={() => setResourceType('comments')} >Comments</button>
-      </div>
-      { resourceType }
+    <div className="container">
+        <div className="wrapper">
+          <button onClick={() => setResourceType('posts')} >Posts</button>
+          <button onClick={() => setResourceType('users')} >Users</button>
+          <button onClick={() => setResourceType('comments')} >Comments</button>
+        </div>
+        { resourceType }
 
-      <div className="dadosPosition">
-        {dados.map((item) => (
-           <p>{JSON.stringify(item)}</p>
-        ))}
+      <div className="wrapper-effect">
+        <ul className="list-ul">
+          {dados.map((item) => (
+            <li key={item.id} className="li-wrapper">
+              <div className="">
+                <span>{item.id}</span>
+                <h2>{item.name}</h2>
+                <h2>{item.username}</h2>
+                <p>{item.website}</p>
+                <p>{item.email}</p>
+                <h2>{item.title}</h2>
+                 {/* <p>{JSON.stringify(item)}</p> */}
+              </div>
+            </li>
+          ))}
+        </ul>
       </div>
+
+
     </div>
   )
 }

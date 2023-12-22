@@ -9,6 +9,7 @@
 
 :root {
   --btn-primary : #2ab861;
+  --color-primary: #ddd;
   --color-bg: #2E2B33;
   --color-1: #342A42;
   --color-2: #5D09DB;
@@ -51,6 +52,7 @@ button {
 
 .item-wrapper {
   display: flex;
+  align-items: center;
   margin: auto;
   background-color: var(--color-1);
   padding: 2rem;
@@ -69,38 +71,59 @@ button {
 
 .valueText {
   display: flex;
+  justify-content: center;
   margin: auto;
   padding: 1rem;
+  background-color: var(--color-primary);
   border-radius: 6px;
-}
-
-.list-wrapper {
-  display: grid;
-  grid-template-columns: 25rem 1fr;
 }
 
 ul {
   list-style: none;
   margin: 0 1.5rem;
 }
-li {
-  display: flex;
-  background-color: var(--color-5);
-  margin: .3rem 0;
-  padding: .5rem 1rem;
 
+.list-wrapper {
+  display: grid;
+  grid-template-columns: 25rem 1fr;
 }
-
-
 .list-ul {
   display: flex;
   flex-direction: column;
   align-items: stretch;
 }
+.li-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-2);
+  color: var(--color-primary);
 
+  margin: .3rem 0;
+  padding: .3rem 1rem;
+  border-radius: 6px;
+}
 .list-text {
   display: flex;
-  
+  flex-direction: column;
+}
+
+.btn-wishlist svg {
+  display: flex;
+  width: 32px;
+  height: 32px;
+  fill: var(--color-bg);
+}
+
+.btn-wishlist svg:hover {
+  fill: var(--color-3);
+  transition: .2s;
+}
+
+.wrapper-effect {
+  overflow-y: scroll;
+  width: auto;
+  max-height: 500px;
 }
 
 

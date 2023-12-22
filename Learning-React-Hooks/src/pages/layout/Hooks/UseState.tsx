@@ -5,9 +5,11 @@ import { Counter } from "../../../components/Counter";
 export function UseState() {
 
   return (
-    <div className='useState'>
+    <div className='item-wrapper'>
       <h2>Uso de State</h2>
-      <Counter />
+      <ul>
+          <Counter />
+      </ul>
     </div>
 
   )

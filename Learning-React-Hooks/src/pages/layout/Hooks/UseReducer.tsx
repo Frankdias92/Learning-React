@@ -41,30 +41,34 @@ export function UseReducer() {
   const [inputValue, setInputValue] = useState('')
 
   return (
-    <div>
-      <input
-        type="text"
-        placeholder="Adicionar"
-        value={inputValue}
-        onChange={(e) => setInputValue(e.target.value)}
-      />
-      <button
-        onClick={() => {
-          dispatch({ type: 'add-task', payload: inputValue })
-        }}
-      >
-        adicionar
-      </button>
-
-      {state.tasks.map((tasks, index) => (
-        <p
-          key={index}
-          onClick={ () => dispatch({ type: 'toggle-task', payload: index.toString() }) }
-          style={{ textDecoration: tasks.isCompleted ? "line-through" : "none" }}
+    <div className="container">
+      <div className="item-wrapper">
+        <input className="form-field"
+          type="text"
+          placeholder="Adicionar"
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+        />
+        <button
+          onClick={() => {
+            dispatch({ type: 'add-task', payload:   inputValue })
+          }}
         >
+          adicionar
+        </button>
+      </div>
+
+      <ul className="list-ul">
+        {state.tasks.map((tasks, index) => (
+          <li className="li-wrapper"
+            key={index}
+            onClick={ () => dispatch({ type: 'toggle-task', payload: index.toString() }) }
+            style={{ textDecoration: tasks.isCompleted ? "line-through" : "none" }}
+          >
           {tasks.name}
-        </p>
-      ))}
+          </li>
+         ))}
+      </ul>
     </div>
   )
 }

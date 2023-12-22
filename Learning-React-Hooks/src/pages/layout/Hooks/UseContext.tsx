@@ -8,7 +8,7 @@ export function UseContext() {
   return (
     <>
       <ThemeContextProvider>
-        <div className="useContext">
+        <div className="wrapper">
           <Message />
           <Greeting />
         </div>

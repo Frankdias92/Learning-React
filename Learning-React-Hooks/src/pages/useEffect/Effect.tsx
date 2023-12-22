@@ -37,7 +37,7 @@ export function Effect() {
   useEffect(() => {
     fetch('https://api.github.com/users/Frankdias92')
       .then((res) => res.json())
-      .then((data) => console.log(data))
+      .then((data) => setData(data))
   }, [])
  
   if (!data) {

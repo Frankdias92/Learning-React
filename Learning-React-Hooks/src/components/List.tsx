@@ -20,17 +20,17 @@ const List = ({ getItems }: ListProps) => {
   }, [getItems])
 
   return (
-    <div className="dadosPosition">
+    <ul className="">
       {items.length > 0 ? (
         items.map((item) => (
-          <p key={item.id}>
+          <li className="li-wrapper" key={item.id}>
             {item?.title || item?.name}
-          </p>
+          </li>
         )
       )) : (
         <p>Nenhum item Disponivel</p>
       )}
-    </div>
+    </ul>
   );
 };
 

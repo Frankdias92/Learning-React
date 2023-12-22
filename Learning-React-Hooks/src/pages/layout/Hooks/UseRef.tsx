@@ -17,18 +17,27 @@ export function UseRef() {
   }
 
   return (
-    <div className="useRef">
-      <input
-        type="text" 
-        ref={inputRef}
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        placeholder="Whats your name?"
-      />
-      <p>Hi! I'm {name}</p>
-      <p>Renders: {renders.current}</p>
+    <div className="container">
+      <div className="item-wrapper">
+        <input className="form-field"
+          type="text" 
+          ref={inputRef}
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          placeholder="Type to render"
+        />
+        <button onClick={focusInput}>Focus Input</button>
+      </div>
 
-      <button onClick={focusInput}>Focus Input</button>
+
+      <div className="valueText list-text">
+        <p>
+          Hi! I'm <strong>{name}</strong>
+        </p>
+        
+        <p>Renders: {renders.current}</p>
+      </div>
+
     </div>
   )
 }
