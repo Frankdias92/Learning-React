@@ -32,7 +32,7 @@ export function UseEffect() {
           <button onClick={() => setResourceType('users')} >Users</button>
           <button onClick={() => setResourceType('comments')} >Comments</button>
         </div>
-        { resourceType }
+        <span className="resourceType">{ resourceType }</span>
 
       <div className="wrapper-effect">
         <ul className="list-ul">

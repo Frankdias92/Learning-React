@@ -6,12 +6,14 @@ import '../global.css'
 
 export function Root() {
   return (
-    <section className="container">
+    <>
       <Header />
 
-      <div className="layout">
-        <Outlet />
-      </div>
-    </section>
+      <section className="container">
+        <div className="layout">
+          <Outlet />
+        </div>
+      </section>
+    </>
   )
 }
