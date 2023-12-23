@@ -13,6 +13,7 @@ type MeuTipo = {
 export function UseEffect() {
   const [resourceType, setResourceType] = useState('posts')
   const [dados, setDados] = useState<MeuTipo[]>([])
+  const [searchData, setSearchData] = useState('')
   
   useEffect(() => {
     const fetchResourceType = async () => {
@@ -24,6 +25,10 @@ export function UseEffect() {
     fetchResourceType()
   }, [resourceType])
 
+  const filteredData = dados.filter(item => 
+    item.title || item.name 
+    && item.name.toLowerCase().includes(searchData.toLowerCase())
+  )
 
   return (
     <div className="container">
@@ -34,9 +39,22 @@ export function UseEffect() {
         </div>
         <span className="resourceType">{ resourceType }</span>
 
+        
+        <input type="text" className="form-field"
+          placeholder="Search for name"
+          value={searchData}
+          onChange={(e) => setSearchData(e.target.value)}
+
+          style={
+            {marginLeft: 25, width: 250}
+          }
+        />
+
       <div className="wrapper-effect">
+        
+        
         <ul className="list-ul">
-          {dados.map((item) => (
+          {filteredData.map((item) => (
             <li key={item.id} className="li-wrapper">
               <div className="">
                 <span>{item.id}</span>
