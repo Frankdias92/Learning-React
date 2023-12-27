@@ -1,7 +1,8 @@
 import { Outlet } from "react-router-dom";
-import { Header } from "../pages/layout/Header";
+import { Header } from "../pages/Header/Header";
 
 import '../global.css'
+import { Footer } from "../pages/Footer/Footer";
 
 
 export function Root() {
@@ -14,6 +15,7 @@ export function Root() {
           <Outlet />
         </div>
       </section>
+      <Footer />
     </>
   )
 }

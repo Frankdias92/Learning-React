@@ -8,8 +8,8 @@ export const Message = () => {
     <>
 
       <div className="form-field" style={{
-        backgroundColor: theme === 'light' ? '#eee' : '#333',
-        color: theme === 'dark' ? '#eee' : '#333',
+        backgroundColor: theme === 'light' ? '#eee' : '#5D663D',
+        color: theme === 'dark' ? '#313329' : '#333',
         }}
       >
 

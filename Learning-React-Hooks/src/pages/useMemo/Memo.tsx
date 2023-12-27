@@ -41,7 +41,7 @@ export function Memo() {
         
         <ul className=".list-ul">
           <div className="list-text">
-            <h2>Whish List - {contItemsWithOne.toString()}</h2>
+            <h2 className="valueText">Whish List - {contItemsWithOne.toString()}</h2>
             {wishlist.map(wishlist => (
               <li className="li-wrapper" key={wishlist}>
                   {wishlist}

@@ -1,0 +1,42 @@
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height: 5rem;
+  border-bottom: .15rem solid var(--btn-primary);
+  box-shadow: 0 0 15px 10px rgba(255, 255, 0, 0.2);
+  color: #fff;
+  transition: .7s;
+
+  margin-bottom: 3rem;
+}
+
+header:hover {
+  box-shadow: 0 0 15px 10px rgba(255, 255, 0, 0.5);
+}
+
+
+
+header ul {
+  display: flex;
+  gap: 1.5rem;
+}
+
+header ul li {
+  list-style: none;
+}
+
+header a {
+  text-decoration: none;
+  color: #fff;
+  font-family: 'Roboto';
+  font-size: large;
+  border: 3px solid transparent;
+}
+
+header a:hover {
+  border-bottom: 3px solid rgb(255, 234, 0);
+  transition: .2s;
+}

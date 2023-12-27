@@ -1,0 +1,34 @@
+footer {
+  display: flex;
+  flex: 1;
+  grid-template-columns: 1fr 1fr;
+  padding: 3rem;
+
+  position: absolute;
+  height: 12rem;
+  width: 100%;
+  bottom: 0;
+  box-shadow: 0 0 5px 3px rgba(255, 255, 0 , .3);
+  background-color: var(--color-1);
+  justify-content: space-around;
+  color: var(--color-primary);
+}
+
+.footerWrapper ul li a{
+  display: flex;
+  align-items: center;
+  gap: .3em;
+  text-decoration: none;
+
+  color: var(--color-2);
+}
+.footerWrapper ul li a:hover {
+  transform: scale(110%);
+  filter: brightness(90%);
+  color: var(--btn-primary);
+  transition: .2s;
+}
+
+footer p {
+  color: var(--color-2);
+}

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import './UseEffect.css'
 
+
 type MeuTipo = {
   id: number;
   name: string;
@@ -14,6 +15,40 @@ export function UseEffect() {
   const [resourceType, setResourceType] = useState('posts')
   const [dados, setDados] = useState<MeuTipo[]>([])
   const [searchData, setSearchData] = useState('')
+
+   // --> Executa todas as vezes que um estado é alterado.
+   useEffect(() => {
+    console.log('executa sempre')
+  })
+
+  // --> Executa somente na primeira vez que a página é carregada.
+  useEffect(() => {
+    console.log('executa na primeira vez que a página carrega')
+  }, [])
+
+  // --> Executa sempre que um estado específico é alterado (Array de dependência).
+  useEffect(() => {
+    console.log(`executa sempre que um estado específico é alterado: ${resourceType}`)
+  }, [resourceType])
+
+  // --> Utilizando o Clean Up.
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      console.log(`Pesquisa executado e atualisa a 1s: ${searchData}`)
+    }, 1000)
+
+    return () => {
+      clearTimeout(timer)
+    }
+  }, [searchData])
+
+  // Exemplo prático - Request API
+  // useEffect(() => {
+  //   fetch('https://api.github.com/users/Frankdias92')
+  //     .then((res) => res.json())
+  //     .then((data) => setData(data))
+  // }, [])
+ 
   
   useEffect(() => {
     const fetchResourceType = async () => {
@@ -25,10 +60,15 @@ export function UseEffect() {
     fetchResourceType()
   }, [resourceType])
 
+  
   const filteredData = dados.filter(item => 
     item.title || item.name 
     && item.name.toLowerCase().includes(searchData.toLowerCase())
-  )
+    )
+    
+    if (!dados) {
+      return <p>loading</p>
+    }
 
   return (
     <div className="container">
@@ -41,7 +81,7 @@ export function UseEffect() {
 
         
         <input type="text" className="form-field"
-          placeholder="Search for name"
+          placeholder="Search for user"
           value={searchData}
           onChange={(e) => setSearchData(e.target.value)}
 
@@ -58,19 +98,17 @@ export function UseEffect() {
             <li key={item.id} className="li-wrapper">
               <div className="">
                 <span>{item.id}</span>
-                <h2>{item.name}</h2>
-                <h2>{item.username}</h2>
+                <h1>{item.name}</h1>
+                <h1>{item.username}</h1>
                 <p>{item.website}</p>
                 <p>{item.email}</p>
-                <h2>{item.title}</h2>
+                <h1>{item.title}</h1>
                  {/* <p>{JSON.stringify(item)}</p> */}
               </div>
             </li>
           ))}
         </ul>
       </div>
-
-
     </div>
   )
 }

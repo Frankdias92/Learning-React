@@ -6,7 +6,7 @@ export function UseState() {
 
   return (
     <div className='item-wrapper'>
-      <h2>Uso de State</h2>
+      <h2 className='valueText'>Uso de State</h2>
       <ul>
           <Counter />
       </ul>
