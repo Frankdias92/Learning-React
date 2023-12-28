@@ -2,8 +2,9 @@ footer {
   display: flex;
   padding: 1rem 3rem;
 
-  position: relative;
-  bottom: 0;
+
+  /* position: absolute; */
+  /* bottom: 0; */
 
 
   width: 100%;

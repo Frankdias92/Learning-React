@@ -1,5 +1,6 @@
 import { useCallback, useMemo, useState } from "react"
-import { Item } from "../../components/Item"
+import { Item } from "../../../../components/Item"
+import './Memo.css'
 
 
 export function Memo() {
@@ -31,7 +32,7 @@ export function Memo() {
         <button onClick={addItemToList} >Add</button>
       </div>
       
-      <div className="list-wrapper">
+      <div className="list-wrapper wrapper-effect">
         
         <ul className="list-ul">
           {items.map(item => (
@@ -43,7 +44,7 @@ export function Memo() {
           <div className="list-text">
             <h2 className="valueText">Whish List - {contItemsWithOne.toString()}</h2>
             {wishlist.map(wishlist => (
-              <li className="li-wrapper" key={wishlist}>
+              <li className="li-wrapper " key={wishlist}>
                   {wishlist}
                 </li> ))}
           </div>

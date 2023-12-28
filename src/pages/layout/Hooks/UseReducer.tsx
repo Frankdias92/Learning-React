@@ -73,9 +73,9 @@ export function UseReducer() {
         </button>
       </div>
 
-      <ul className="list-ul">
+      <ul className="wrapper-effect">
         {state.tasks.map((tasks, id) => (
-          <li className="li-wrapper"
+          <li className="li-wrapper item-width"
             key={id}
           >
             <a

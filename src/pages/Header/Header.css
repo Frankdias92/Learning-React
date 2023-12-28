@@ -9,8 +9,6 @@ header {
   box-shadow: 0 0 15px 10px rgba(255, 255, 0, 0.2);
   color: #fff;
   transition: .7s;
-
-  margin-bottom: 3rem;
 }
 
 header:hover {

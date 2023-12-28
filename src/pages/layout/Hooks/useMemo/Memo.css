@@ -1,0 +1,8 @@
+.container-memo {
+  display: flex;
+  flex-direction: column;
+}
+
+.item-space {
+  margin-bottom: 1.5rem;
+}

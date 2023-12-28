@@ -4,13 +4,13 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import { Root } from './routes/root'
 import { UseState } from './pages/layout/Hooks/UseState'
 import { UseEffect } from './pages/layout/Hooks/UseEffect'
-import { UseMemo } from './pages/layout/Hooks/UseMemo'
+import { UseMemo } from './pages/layout/Hooks/useMemo/UseMemo'
 import { UseRef } from './pages/layout/Hooks/UseRef'
 import { UseReducer } from './pages/layout/Hooks/UseReducer'
 import { UseContext } from './pages/layout/Hooks/UseContext'
 import { UseCallback } from './pages/layout/Hooks/useCallback'
 import UseLayoutEffect from './pages/layout/Hooks/UseLayoutEffect'
-import { Memo } from './pages/useMemo/Memo'
+import { Memo } from './pages/layout/Hooks/useMemo/Memo'
 
 
 const router = createBrowserRouter([

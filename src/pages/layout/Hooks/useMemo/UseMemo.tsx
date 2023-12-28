@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react"
-import { Memo } from "../../useMemo/Memo"
+import { Memo } from "./Memo"
+import './Memo.css'
 
 export function UseMemo() {
   const [number, setNumber] = useState(0)
@@ -22,8 +23,8 @@ export function UseMemo() {
   }, [themeStyles])
   
   return (
-    <div className="container">
-      <div className="item-wrapper">
+    <div className="container-memo">
+      <div className="item-wrapper item-space">
         <input className="form-field" type="number" value={number} onChange={(e) => setNumber  (parseInt(e.target.value))} />
 
         <button onClick={() => setDark(prevDark => !prevDark)} >
@@ -34,7 +35,7 @@ export function UseMemo() {
         </div>
       </div>
 
-      <div className="item">
+      <div className="">
         <Memo />
       </div>
 
