@@ -1,13 +1,12 @@
 footer {
   display: flex;
-  flex: 1;
-  grid-template-columns: 1fr 1fr;
-  padding: 3rem;
+  padding: 1rem 3rem;
 
-  position: absolute;
-  height: 12rem;
-  width: 100%;
+  position: relative;
   bottom: 0;
+
+
+  width: 100%;
   box-shadow: 0 0 5px 3px rgba(255, 255, 0 , .3);
   background-color: var(--color-1);
   justify-content: space-around;
