@@ -9,6 +9,7 @@ app.use(cors())
 
 app.use(express.json())
 
+// Defaul User
 let users = [{
   id: 1,
   name: "Franklin Macedo",
@@ -16,7 +17,7 @@ let users = [{
   city: "Natal"
 }]
 
-
+// router API get Users
 app.route('/api').get((req, res) => res.json({
   users
 }))
@@ -32,6 +33,7 @@ app.route('/api/:id').get((req, res) => {
 
   res.json(user)
 })
+
 
 app.route('/api').post((req, res) => {
   const lastId = users[users.length - 1].id
