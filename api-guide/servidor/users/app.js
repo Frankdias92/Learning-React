@@ -1,9 +1,14 @@
 const express = require('express')
+const app = express()
 const cors = require('cors')
 
-const app = express()
+const port = 5500
 
-app.listen(5500, () => console.log('Rodando na porta 5500'))
+app.get('/', (req, res) => {
+  res.send('Hello World')
+})
+
+app.listen(5500, () => console.log(`Starting server on port ${port}`))
 
 app.use(cors())
 
@@ -30,16 +35,16 @@ app.route('/api').get((req, res) => res.json({
   users
 }))
 
-app.route('/api/:id').get((req, res) => {
-  const userId = req.params.id
-  const user = users.find(user => Number(user.id) === Number(userId))
+app.route('/api/users/:userId').get((req, res) => {
+  const userId = req.params.userId
+  const user = users.find(user => user.id === userId)
 
   if (!user) {
-    return res.json('User nor found!')
+    return res.status(404).json('User nor found!')
   }
 
   // add new router from posts
-  const userPosts = posts.filter(post => post.userId === Number(userId))
+  const userPosts = posts.filter(post => post.userId === userId)
 
   res.json({ user, posts: userPosts })
 })
@@ -55,66 +60,58 @@ app.route('/api').post((req, res) => {
     avatarUrl: req.body.avatarUrl,
     city: req.body.city
   })
+
+  users.push(newUser)
   res.json('Saved user')
 })
 
 // Update user profile 
-app.route('/api/:id').put((req, res) => {
-  const userId = req.params.id
-
-  const user = users.find(user => Number(user.id) === Number(userId))
+app.route('/api/users/:userId').put((req, res) => {
+  const userId = req.params.userId
+  const user = users.findIndex(user => user.id === userId)
 
   if (!user) {
-    return res.json('User nor found!')
+    return res.status(404).json({ error: 'User nor found!' })
   }
 
-  const updatedUser = {
-    ...user,
-    name: req.body.name,
-    avatarUrl: req.body.avatarUrl,
-    city: req.body.city
-  }
 
-  users = users.map(user => {
-    if (Number(user.id) === Number(userId)) {
-      user = updatedUser
-    }
-    return user
-  })
+    user.name = req.body.name,
+    user.avatarUrl = req.body.avatarUrl,
+    user.city = req.body.city
 
   res.json("Updated user")
 })
 
 
 // Delete a user
-app.route('/api/:id').delete((req, res) => {
+app.route('/api/users/:userId').delete((req, res) => {
   const userId = req.params.id
 
-  users = users.filter(user => Number(user.id) !== Number(userId))
+  users = users.filter(user => user.id !== userId)
 
   res.json('Deleted User')
 })
 
 
-// New API Router to Posts
-app.route('/api/posts/user/:userId').get((req, res) => {
-  const userId = req.params.userId
-  const userPosts = posts.filter(post => post.userId === Number(userId)) 
+// // New API Router to Posts
+// app.route('/api/users/:userId/posts').get((req, res) => {
+//   const userId = req.params.userId
+//   const userPosts = posts.filter(post => post.userId === userId) 
 
-  res.json({ userPosts })
-})
+//   res.json({ userPosts })
+// })
 
 
-// Create router to Posts
-app.route('/api/posts').post((req, res) => {
-  const lastPostId = posts.length > 0 ? posts[posts.length - 1].id : 0
+// // Create router to Posts
+// app.route('/api/posts').post((req, res) => {
+//   // const lastPostId = posts.length > 0 ? posts[posts.length - 1].id : 0
 
-  const newPost = {
-    id: lastPostId + 1,
-    userId: req.body.userId,
-    content: req.body.content
-  }
+//   let newPost = {
+//     id: lastPostId + 1,
+//     userId: req.body.userId,
+//     content: req.body.content
+//   }
 
-  posts.push(newPost)
-  res.json('new post saved')
-})
+//   posts.push(newPost)
+//   res.json('new post saved')
+// })

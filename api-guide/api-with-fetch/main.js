@@ -8,7 +8,7 @@ const newUser = {
   name: "POST"
 }
 
-let posts = [
+let dataPosts = [
   {
     id: 1,
     userId: 'First Title',
@@ -48,26 +48,24 @@ function getNewUser() {
     }
     return res.json()
   })
-  .then((requestPost) => {
-    console.log(`Salved user`)
+  .then((newUser) => {
+    console.log('Salved user: ', newUser)
   })
   .catch((error) => {
-    console.log(`${error}`)
+    console.log(`Error: ${error}`)
   })
 }
 // getNewUser()
 
+
 // set NEW USER
-function setNewUser(userId) {
-  return `${url}/${userId}`
-}
 const userUpdate = {
   name: "USER UPDATE",
   avatarUrl: "https://picsum.photos/200/300",
   city: "CITY NEW"
 }
 function updateUserFetch(userId, userUpdate) {
-  const userUrl = setNewUser(userId)
+  const userUrl = `${url}/${userId}`
   fetch(userUrl, requestPost("PUT", userUpdate))
   .then((res) => {
     if(!res.ok) {
@@ -85,20 +83,22 @@ function updateUserFetch(userId, userUpdate) {
 // updateUserFetch(5, userUpdate)
 
 
-function addPost(title, body) {
-  
 
-  let userId = document.getElementById('send-Title').value
-  let content = document.getElementById('send-Text').value
+function addPost(title, body) {
+  let userId = title
+  let content = body
   
-  fetch(url, requestPost('POST', { userId: userId, content: content }))
-  .then((res) => res.json())
-  .then((data) => 
-    console.log(`userId: ${userId}, title: ${content}`
-    )
-  )
-  
+  fetch(url, requestPost('POST', {userId: userId, content: content}))
+  .then((res) => {
+    if (!res.ok) {
+      throw new Error(res.status)
+    }
+    return res.json()
+  })
+  .then((data) => {
+    console.log('New post saved: ', data)
+  })
   
   .catch((error) => console.log(error))
 }
-// addPost('new post', 'content')
+addPost('new post', 'content')
