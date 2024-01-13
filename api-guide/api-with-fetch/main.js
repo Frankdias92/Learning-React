@@ -1,104 +1,38 @@
-// url API
-const url = "http://localhost:5500/api"
-
-const newUser = {
-  id: 1,
-  avatarUrl: "https://avatars.githubusercontent.com/u/101531465?v=4",
-  city: "CITY",
-  name: "POST"
-}
-
-let dataPosts = [
-  {
-    id: 1,
-    userId: 'First Title',
-    content: 'Content of comment'
-  }
-]
-
-// set request POST
-function requestPost(method, user) {
-  return {
-  method: `${method}`,
-  headers: {
-    "Content-Type": "application/json",
-  },
-  body: JSON.stringify(user)
-  }
-}
+const container = document.querySelector('#postsBlog')
 
 // get Fetch
-fetch(url)
-.then((res) => res.json())
-.then((data) => {
-  renderContent.textContent = JSON.stringify(data);
-  console.log(data)
-})
-.catch((error) => {
-  console.log(`ops, something wrong here: ${error}`)
-})
+const renderPosts = async () => {
+  const url = "http://localhost:3000/posts"
 
+  const res = await fetch(url)
+  const posts = await res.json()
 
-// getNewUser
-function getNewUser() {
-  fetch(url, requestPost('POST'))
-  .then((res) => {
-    if(!res.ok) {
-      throw new Error(`Error request: ${res.status} - ${res.statusText}`)
-    }
-    return res.json()
+  let renderTemplate = '';
+  posts.map(posts => {
+    renderTemplate += `
+      <div class='post'>
+        <h2>${posts.title}</h2>
+        <p><small>${posts.likes}</small></p>
+        <p>${posts.body.slice(0, 200)}</p>
+        <a href="./components/details.html?id=${posts.id}">more...</a>
+      </div>
+    `
   })
-  .then((newUser) => {
-    console.log('Salved user: ', newUser)
-  })
-  .catch((error) => {
-    console.log(`Error: ${error}`)
-  })
+
+  container.innerHTML = renderTemplate
 }
-// getNewUser()
+const name = 
+window.addEventListener('DOMContentLoaded', () => renderPosts())
 
 
-// set NEW USER
-const userUpdate = {
-  name: "USER UPDATE",
-  avatarUrl: "https://picsum.photos/200/300",
-  city: "CITY NEW"
+// javascript for details Post
+const id = new URLSearchParams(window.location.search).get('id')
+
+const renderDetails = async () => {
+  const res = await fetch("http://localhost:3000/posts" + id)
+  const post = await res.json()
+
+  console.log(post)
 }
-function updateUserFetch(userId, userUpdate) {
-  const userUrl = `${url}/${userId}`
-  fetch(userUrl, requestPost("PUT", userUpdate))
-  .then((res) => {
-    if(!res.ok) {
-      throw new Error(`User update failed: ${res.status} - ${res.statusText}`)
-    }
-    return res.json()
-  })
-  .then((data) => {
-    console.log(`User update: ${data}`)
-  })
-  .catch((error) => {
-    console.log(`error: ${error}`)
-  })
-}
-// updateUserFetch(5, userUpdate)
 
-
-
-function addPost(title, body) {
-  let userId = title
-  let content = body
-  
-  fetch(url, requestPost('POST', {userId: userId, content: content}))
-  .then((res) => {
-    if (!res.ok) {
-      throw new Error(res.status)
-    }
-    return res.json()
-  })
-  .then((data) => {
-    console.log('New post saved: ', data)
-  })
-  
-  .catch((error) => console.log(error))
-}
-addPost('new post', 'content')
+window.addEventListener('DOMContentLoaded', () => renderDetails())
