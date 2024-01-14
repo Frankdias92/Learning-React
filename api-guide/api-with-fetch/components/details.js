@@ -1,10 +1,13 @@
 // javascript for details Post
 const id = new URLSearchParams(window.location.search).get('id')
 const postItem = document.querySelector('#post-item')
+const btnDelete = document.querySelector('.btn-delete')
 
 
-const renderDetails = async () => {
-  const url = "http://localhost:3000/posts"
+const url = "http://localhost:3000/posts"
+
+
+const renderDetails = async (searchName) => {
 
   const res = await fetch(`${url}/${id}`)
   const post = await res.json()
@@ -19,4 +22,13 @@ const renderDetails = async () => {
   console.log(post)
 }
 
-  window.addEventListener('DOMContentLoaded', () => renderDetails())
+btnDelete.addEventListener('click', async (e) => {
+  const res = await fetch(`${url}/${id}`, {
+    method: 'DELETE',
+  })
+  window.location.replace('index.html')
+})
+
+
+
+window.addEventListener('DOMContentLoaded', () => renderDetails())

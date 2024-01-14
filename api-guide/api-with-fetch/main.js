@@ -1,8 +1,13 @@
 const container = document.querySelector('#postsBlog')
+const searchForm = document.querySelector('.searchPosts')
 
 // get Fetch
-const renderPosts = async () => {
-  const url = "http://localhost:3000/posts"
+const renderPosts = async (nameF) => {
+  let url = "http://localhost:3000/posts"
+
+  // if (nameF) {
+  //   url += `?${nameF}`
+  // }
 
   const res = await fetch(url)
   const posts = await res.json()
@@ -19,9 +24,15 @@ const renderPosts = async () => {
     `
   })
   
-  
   console.log(posts)
   container.innerHTML = renderTemplate
 }
-window.addEventListener('DOMContentLoaded', () => renderPosts())
+
+// searchForm.addEventListener('submit', (e) => {
+//   e.preventDefault()
+
+//   renderPosts(searchForm.nameF.value.trim())
+// })
+
+window.addEventListener('DOMContentLoaded', () => renderPosts(''))
 
