@@ -30,5 +30,4 @@ btnDelete.addEventListener('click', async (e) => {
 })
 
 
-
 window.addEventListener('DOMContentLoaded', () => renderDetails())

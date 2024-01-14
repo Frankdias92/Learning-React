@@ -1,38 +1,56 @@
-const container = document.querySelector('#postsBlog')
-const searchForm = document.querySelector('.searchPosts')
+const container = document.querySelector('#postsBlog');
+const searchForm = document.querySelector('.search-bar');
 
-// get Fetch
-const renderPosts = async (nameF) => {
-  let url = "http://localhost:3000/posts"
+// Função para renderizar os posts
+const renderPosts = async (searchValue) => {
+  try {
+    let url = "http://localhost:3000/posts";
 
-  // if (nameF) {
-  //   url += `?${nameF}`
-  // }
+    if (searchValue) {
+      url += `?title=${encodeURIComponent(searchValue)}`;
+    }
 
-  const res = await fetch(url)
-  const posts = await res.json()
+    console.log("Antes da requisição:", url);
 
-  let renderTemplate = '';
-  posts.map(posts => {
-    renderTemplate += `
-      <div class='post'>
-        <h2>${posts.title}</h2>
-        <p><small>${posts.likes}</small></p>
-        <p>${posts.body.slice(0, 200)}</p>
-        <a href="details.html?id=${posts.id}">more...</a>
-      </div>
-    `
-  })
-  
-  console.log(posts)
-  container.innerHTML = renderTemplate
-}
+    const res = await fetch(url);
 
-// searchForm.addEventListener('submit', (e) => {
-//   e.preventDefault()
+    if (!res.ok) {
+      console.error('Erro ao buscar posts:', res.status);
+      return;
+    }
 
-//   renderPosts(searchForm.nameF.value.trim())
-// })
+    const posts = await res.json();
+    console.log("Dados recebidos:", posts);
 
-window.addEventListener('DOMContentLoaded', () => renderPosts(''))
+    let renderTemplate = '';
 
+    if (Array.isArray(posts) && posts.length > 0) {
+      posts.forEach(post => {
+        renderTemplate += `
+          <div class='post'>
+            <h2>${post.title}</h2>
+            <p><small>${post.likes}</small></p>
+            <p>${post.body.slice(0, 200)}</p>
+            <a href="details.html?id=${post.id}">more...</a>
+          </div>
+        `;
+      });
+    } else {
+      renderTemplate = '<p>Nenhum post encontrado.</p>';
+    }
+
+    // console.log("Renderizando template:", renderTemplate);
+
+    container.innerHTML = renderTemplate;
+
+  } catch (error) {
+    console.error('Erro na requisição:', error);
+  }
+};
+
+searchForm.addEventListener('input', (e) => {
+  const searchValue = e.target.value.trim().toLowerCase();
+  renderPosts(searchValue);
+});
+
+window.addEventListener('DOMContentLoaded', () => renderPosts(''));
