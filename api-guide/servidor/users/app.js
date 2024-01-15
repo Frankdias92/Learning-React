@@ -91,27 +91,3 @@ app.route('/api/users/:userId').delete((req, res) => {
 
   res.json('Deleted User')
 })
-
-
-// // New API Router to Posts
-// app.route('/api/users/:userId/posts').get((req, res) => {
-//   const userId = req.params.userId
-//   const userPosts = posts.filter(post => post.userId === userId) 
-
-//   res.json({ userPosts })
-// })
-
-
-// // Create router to Posts
-// app.route('/api/posts').post((req, res) => {
-//   // const lastPostId = posts.length > 0 ? posts[posts.length - 1].id : 0
-
-//   let newPost = {
-//     id: lastPostId + 1,
-//     userId: req.body.userId,
-//     content: req.body.content
-//   }
-
-//   posts.push(newPost)
-//   res.json('new post saved')
-// })
