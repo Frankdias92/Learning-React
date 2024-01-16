@@ -9,33 +9,36 @@
   <script src="./src/js/app.js" defer></script>
 </head>
 <body>
-  <h1>Code Journey</h1>
-  <p class="loading">Loading...</p>
+  <div class="container">
+    <h1>Code Journey</h1>
+    <p class="loading">Loading...</p>
 
-  <section>
-    <form id="newPostForm">
-      <div>
-        <label for="post">Title Name</label>
-        <input 
-          type="text" 
-          name="post" 
-          class="post-form" 
-          placeholder="Your Title" 
-          required
-        >
-      </div>
-      <div>
-        <textarea
-          name="body" 
-          class="body-text" 
-          placeholder="Writte something..." 
-          required
-        ></textarea>
-      </div>
-      <input type="submit" value="Send">
-    </form>
-  </section>
+    <section class="container">
+      <form id="newPostForm" class="form wrapperItem">
+        <div class="wrapper">
+          <!-- <label for="post">Title Name</label> -->
+          <input 
+            type="text" 
+            name="post" 
+            class="post-form container" 
+            placeholder="Your Title" 
+            required
+          >
+        </div>
+        <div class="container">
+          <textarea
+            name="body" 
+            class="body-text form wrapper" 
+            placeholder="Writte something..." 
+            required
+          ></textarea>
+        </div>
+        <input class="button" type="submit" value="Send">
+      </form>
+    </section>
 
-  <div id="postsContainer"></div>
+    <div id="postsContainer" class="container"></div>
+  </div>
+  
 </body>
 </html>
