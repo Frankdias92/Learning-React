@@ -9,9 +9,9 @@
   <script src="./src/js/app.js" defer></script>
 </head>
 <body>
-  <p class="loading hide">Loading...</p>
+  <p class="loading">Loading...</p>
   
-  <div id="mainContainer">
+  <div id="mainContainer" class="hide">
     <a href="index.html">Home</a>
     <div class="publis"></div>
 
@@ -22,7 +22,7 @@
         <input 
           type="text" 
           name="profile" 
-          id="profile" 
+          id="profile-form" 
           placeholder="Profile Name" 
           required
         >
@@ -31,7 +31,7 @@
         <label for="body">Comment</label>
         <textarea
           name="body" 
-          id="body" 
+          id="body-form" 
           placeholder="Your comment" 
           required
         ></textarea>

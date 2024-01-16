@@ -1,12 +1,20 @@
 const url = "http://localhost:3000"
 
-const loadingResource = document.querySelector('.element-loading')
-const postsContainer = document.querySelector('#posts-container')
+const loadingResource = document.querySelector('.loading')
+const postsCont = document.querySelector('#postsContainer')
+
+const newPost = document.querySelector('#newPostForm')
+let titleInput = document.querySelector('[name="post"]')
+let bodyInputPost = document.querySelector('[name="body"]')
+
+const commentForm = document.querySelector('#comment-form')
+const profileInput = document.querySelector('#profile-form')
+const bodyInput = document.querySelector('#body-form')
 
 // SET PAGE POST
 const mainPage = document.querySelector('#mainContainer')
 const publis = document.querySelector('.publis')
-const comments = document.querySelector('.containerComments')
+const commentsContainer = document.querySelector('.containerComments')
 
 // GET Id FROM URL
 const urlSearch = new URLSearchParams(window.location.search) // acess to params url
@@ -19,14 +27,12 @@ async function getAllPosts() {
   // console.log(res) // return response from server
 
   const data = await res.json()
-  // const posts = await res.json()
-  console.log('data from server: ', data) // return all data from res, get all arrays
+  // console.log('data from server: ', data) // return all data from res, get all arrays
 
   const posts = data
-  
-  console.log('Posts: ', posts) //
+  // console.log('Posts: ', posts) //
 
-  // loadingResource.classList.add('hide')
+  loadingResource.classList.add('hide')
 
   posts.map((post) => {
     const div = document.createElement('div')
@@ -43,62 +49,117 @@ async function getAllPosts() {
     div.appendChild(body)
     div.appendChild(link)
     
-    postsContainer.appendChild(div) 
+    postsCont.appendChild(div)
   })
+
 }
 
 // GET INDIVIDUAL 'POST'
 async function getPost(id) {
-  // const res = await fetch(url)
-  // const data = await res.json()
-  const resPost = await fetch(`${url}/posts/?id=${id}`)
+  const [resPost, resComments, resProfile] = await Promise.all(
+    [
+      fetch(`${url}/posts/?id=${id}`),
+      fetch(`${url}/comments/?postId=${id}`),
+      fetch(`${url}/profile`)
+    ]
+  )
+    
+  loadingResource.classList.add('hide')
+  mainPage.classList.remove('hide')
+
   const dataPost = await resPost.json()
-
-  const posts = dataPost
-  console.log('view profile: ', posts)
-  // const comments = data.comments
-  // const profile = data.profile
-
-  // loadingResource.classList.add('hide')
-  // mainPage.classList.remove('hide')
-
+  const dataComments = await resComments.json()
+  // const dataProfile = await resProfile.json()
   
-posts.forEach((post) => {
-  const title = document.createElement('h1')
-  const body = document.createElement('p')
+  const posts = dataPost
+  const comments = Object.values(dataComments)
 
-  title.innerText = post.title
-  body.innerText = post.body
+  // console.log('profile type: ', typeof comments)
 
-  console.log(title)
-  publis.appendChild(title)
-  publis.appendChild(body)
+  posts.forEach((post) => {
+    const title = document.createElement('h1')
+    const body = document.createElement('p')
 
-})
+    title.innerText = post.title
+    body.innerText = post.body
 
-  console.log('view: ', comments)
-  comments.map((comment, profile) => {
-    createComment()
+    publis.appendChild(title)
+    publis.appendChild(body)
+  })
+
+  comments.forEach((comment) => {
+    createComment(comment)
   })
 }
 
-function createComment(comment, profile) {
-
+function createComment(comment) {
   const div = document.createElement('div')
-  const profileName = document.createElement('h3')
-  const commentBody = document.createElement('p')
+  const nameProfile = document.createElement('h2')
+  const commentText = document.createElement('p')
 
-  profile.innerText = profile.name
-  commentBody.innerText = comment.body
+  nameProfile.innerText = comment.name || 'Anonymous'
+  commentText.innerText = comment.text
 
-  div.appendChild(profile.Name)
-  div.appendChild(commentBody)
+  div.appendChild(nameProfile)
+  div.appendChild(commentText)
 
-  comments.appendChild(div)
+  commentsContainer.appendChild(div)
 }
+
+async function sendNewPost(sendPost) {
+    const res = await fetch(`${url}/posts`,
+    {
+      method: "POST",
+      body: sendPost,
+      headers: { 'Content-Type': "application/json" }
+    });
+  const data = await res.json();
+    
+  console.log('Resposta do servidor:', data);
+}
+
+async function postComment(comment) {
+  const res = await fetch(`${url}/comments/?id=${postId}/comments`,
+    {
+      method: "POST",
+      body: comment,
+      headers: {
+      "content-type": "application/json"
+    }
+  })
+
+  const data = await res.json()
+}
+
 
 if (!postId) {
   getAllPosts()
+
+  // ADD NEW POST
+  newPost.addEventListener('submit', (e) => {
+    e.preventDefault()
+    let sendPost = {
+    title: titleInput.value,
+    body: bodyInputPost.value
+    }
+    sendPost = JSON.stringify(sendPost)
+    sendNewPost(sendPost)
+  })
+
 } else {
   getPost(postId)
+
+  // ADD NEW COMMENT
+  commentForm.addEventListener('submit', (e) => {
+    e.preventDefault()
+    let comment = {
+      name: profileInput.value,
+      text: bodyInput.value,
+      postId: postId
+    }
+
+    comment = JSON.stringify(comment)
+
+    postComment(comment)
+  })
 }

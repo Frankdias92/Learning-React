@@ -1,43 +1,52 @@
 {
-  "body": {
-    "posts": [
-      {
-        "id": "1",
-        "title": "First Title",
-        "body": "loren ipsun dolor sit amet, consectetur adipiscing elit",
-        "likes": 15
-      },
-      {
-        "id": "2",
-        "title": "Second Title",
-        "body": "Content of comment",
-        "likes": 19
-      }
-    ],
-    "comments": [
-      {
-        "id": "1",
-        "text": "a comment about post 1",
-        "postId": "1"
-      },
-      {
-        "id": "2",
-        "text": "another comment about post 1",
-        "postId": "1"
-      },
-      {
-        "id": "dafc",
-        "text": "comment about Post 1 (first)",
-        "postId": "1"
-      },
-      {
-        "id": "48db",
-        "text": "comment about Post 2 (second)",
-        "postId": "2"
-      }
-    ],
-    "profile": {
-      "name": "typicode"
+  "posts": [
+    {
+      "id": "1",
+      "title": "First Title",
+      "body": "loren ipsun dolor sit amet, consectetur adipiscing elit",
+      "likes": 15
+    },
+    {
+      "id": "2",
+      "title": "Second Title",
+      "body": "Content of comment",
+      "likes": 19
     }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "name": "Steve",
+      "text": "a comment about post 1",
+      "postId": "1"
+    },
+    {
+      "id": "2",
+      "name": "Smith",
+      "text": "comment about post 2",
+      "postId": "2"
+    },
+    {
+      "id": "40d3",
+      "name": "Franklin",
+      "text": "Finaly works",
+      "postId": "2"
+    },
+    {
+      "id": "0e5f",
+      "name": "Rock",
+      "text": "You're rock",
+      "postId": "1"
+    },
+    {
+      "id": "b3b1",
+      "name": "new profile",
+      "text": "new comment ",
+      "postId": "1"
+    }
+  ],
+  "profile": {
+    "id": "1",
+    "name": "typicode"
   }
 }

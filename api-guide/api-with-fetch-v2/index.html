@@ -12,6 +12,30 @@
   <h1>Code Journey</h1>
   <p class="loading">Loading...</p>
 
-  <div id="posts-container"></div>
+  <section>
+    <form id="newPostForm">
+      <div>
+        <label for="post">Title Name</label>
+        <input 
+          type="text" 
+          name="post" 
+          class="post-form" 
+          placeholder="Your Title" 
+          required
+        >
+      </div>
+      <div>
+        <textarea
+          name="body" 
+          class="body-text" 
+          placeholder="Writte something..." 
+          required
+        ></textarea>
+      </div>
+      <input type="submit" value="Send">
+    </form>
+  </section>
+
+  <div id="postsContainer"></div>
 </body>
 </html>

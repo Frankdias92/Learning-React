@@ -1,6 +1,21 @@
+:root {
+  --btn-primary : #FFFF00;
+  --color-primary: #FFF;
+  --color-bg: #1D1D1D;
+  --color-1: #313329;
+  --color-2: #5D663D;
+  --color-3: #A9CC29;
+  --color-4: #FFFF00;
+  --color-5: #5C28A8;
+}
+
 body {
   background-color: #333;
   color: #ddd;
+  font-family: Tahoma, sans-serif;
+}
+p{
+  font-family: 'Courier New', Courier, monospace;
 }
 
 .hide {
