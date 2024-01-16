@@ -1,41 +1,43 @@
 {
-  "posts": [
-    {
-      "id": "1",
-      "title": "First Title",
-      "body": "loren ipsun dolor sit amet, consectetur adipiscing elit",
-      "likes": 15
-    },
-    {
-      "id": "2",
-      "title": "Second Title",
-      "body": "Content of comment",
-      "likes": 19
+  "body": {
+    "posts": [
+      {
+        "id": "1",
+        "title": "First Title",
+        "body": "loren ipsun dolor sit amet, consectetur adipiscing elit",
+        "likes": 15
+      },
+      {
+        "id": "2",
+        "title": "Second Title",
+        "body": "Content of comment",
+        "likes": 19
+      }
+    ],
+    "comments": [
+      {
+        "id": "1",
+        "text": "a comment about post 1",
+        "postId": "1"
+      },
+      {
+        "id": "2",
+        "text": "another comment about post 1",
+        "postId": "1"
+      },
+      {
+        "id": "dafc",
+        "text": "comment about Post 1 (first)",
+        "postId": "1"
+      },
+      {
+        "id": "48db",
+        "text": "comment about Post 2 (second)",
+        "postId": "2"
+      }
+    ],
+    "profile": {
+      "name": "typicode"
     }
-  ],
-  "comments": [
-    {
-      "id": "1",
-      "text": "a comment about post 1",
-      "postId": "1"
-    },
-    {
-      "id": "2",
-      "text": "another comment about post 1",
-      "postId": "1"
-    },
-    {
-      "id": "dafc",
-      "text": "comment about Post 1 (first)",
-      "postId": "1"
-    },
-    {
-      "id": "48db",
-      "text": "comment about Post 2 (second)",
-      "postId": "2"
-    }
-  ],
-  "profile": {
-    "name": "typicode"
   }
 }

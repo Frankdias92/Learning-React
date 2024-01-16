@@ -1,4 +1,4 @@
-const url = "http://localhost:3000/posts"
+const url = "http://localhost:3000"
 
 const loadingResource = document.querySelector('.element-loading')
 const postsContainer = document.querySelector('#posts-container')
@@ -12,13 +12,19 @@ const comments = document.querySelector('.containerComments')
 const urlSearch = new URLSearchParams(window.location.search) // acess to params url
 const postId = urlSearch.get('id')
 
+
 // GET ALL POSTS
 async function getAllPosts() {
-  const res = await fetch(url)
-  console.log(res) // return response from server
+  const res = await fetch(`${url}/posts`)
+  // console.log(res) // return response from server
 
-  const posts = await res.json()
-  console.log(posts) // return all data from res, get all arrays
+  const data = await res.json()
+  // const posts = await res.json()
+  console.log('data from server: ', data) // return all data from res, get all arrays
+
+  const posts = data
+  
+  console.log('Posts: ', posts) //
 
   // loadingResource.classList.add('hide')
 
@@ -41,50 +47,51 @@ async function getAllPosts() {
   })
 }
 
-
 // GET INDIVIDUAL 'POST'
 async function getPost(id) {
-  const [resPost, resComments, resProfile] = await Promise.all(
-    [
-      fetch(`${url}/${postId}`),
-      fetch(`http://localhost:3000/comments/${postId}`),
-      fetch(`http://localhost:3000/profile`)
-    ]
-  )
+  // const res = await fetch(url)
+  // const data = await res.json()
+  const resPost = await fetch(`${url}/posts/?id=${id}`)
+  const dataPost = await resPost.json()
 
-  const dataPost = await resPost.json() // ARRAY OBJECT POSTS
-  const dataComments = await resComments.json() // ARRAY OBJECT COMMENTS
-  const dataProfile = await resProfile.json() // ARRAY OBJECT PROFILE
-  
-  console.log('view profile: ', resProfile.json())
+  const posts = dataPost
+  console.log('view profile: ', posts)
+  // const comments = data.comments
+  // const profile = data.profile
+
   // loadingResource.classList.add('hide')
   // mainPage.classList.remove('hide')
 
+  
+posts.forEach((post) => {
   const title = document.createElement('h1')
   const body = document.createElement('p')
 
-  title.innerText = dataPost.title
-  body.innerText = dataPost.body
-  
+  title.innerText = post.title
+  body.innerText = post.body
+
+  console.log(title)
   publis.appendChild(title)
   publis.appendChild(body)
 
-  // console.log('view: ',dataComments)
-  dataComments.map((comment) => {
+})
+
+  console.log('view: ', comments)
+  comments.map((comment, profile) => {
     createComment()
   })
 }
 
-function createComment(comment) {
+function createComment(comment, profile) {
 
   const div = document.createElement('div')
-  const profile = document.createElement('h3')
+  const profileName = document.createElement('h3')
   const commentBody = document.createElement('p')
 
   profile.innerText = profile.name
   commentBody.innerText = comment.body
 
-  div.appendChild(profile)
+  div.appendChild(profile.Name)
   div.appendChild(commentBody)
 
   comments.appendChild(div)
