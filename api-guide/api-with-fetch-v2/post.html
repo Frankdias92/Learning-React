@@ -9,39 +9,74 @@
     <script src="./src/js/app.js" defer></script>
   </head>
   <body>
-    <p class="loading">Loading...</p>
-    <div id="mainContainer" class="hide">
-      <a href="index.html">Home</a>
+    <header>
+      <div class="wrapper-pad">
+        <h1>Code Journey</h1>
+        <a href="index.html">Home</a>
+      </div>
+    </header>
+
+    <div id="mainContainer" class="hide containerBody">
+      <p class="loading">Loading...</p>
       <div class="publis"></div>
 
-      <div>
+      <section class="container borderForm">
+        <form id="form" class="wrapperItem">
+          <label for="profile">Your Name</label>
+          <input
+            type="text"
+            name="profile"
+            id="profile-form"
+            placeholder="Profile Name"
+            required
+          />
+          <label for="body">Comment</label>
+          <textarea
+            name="body"
+            id="body-form"
+            class="form"
+            placeholder="Your comment"
+            required
+            rows="3"
+          ></textarea>
 
-        <form id="comment-form">
-          <div>
-            <label for="profile">Your Name</label>
-            <input
-              type="text"
-              name="profile"
-              id="profile-form"
-              placeholder="Profile Name"
-              required
-            />
-          </div>
-          <div>
-            <label for="body">Comment</label>
-            <textarea
-              name="body"
-              id="body-form"
-              class="form"
-              placeholder="Your comment"
-              required
-            ></textarea>
-          </div>
           <input class="button" type="submit" value="Send" />
         </form>
-      </div>
+      </section>
+      
       <h2>Comments</h2>
-      <div class="containerComments"></div>
+      <div class="containerComments container"></div>
     </div>
+
+    <footer>
+      <div class="footerWrapper">
+        <h1>Info</h1>
+        <ul>
+          <li>
+            <a href="https://www.linkedin.com/in/franklinmacedodias/" target="_blank">
+              <LinkedinLogo />
+              Linkedin
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/Frankdias92" target="_blank">
+              <GithubLogo />
+              Git Hub
+            </a>
+          </li>
+          <li>
+            <a href="https://medium.com/@frankmcdias" target="_blank">
+              <MediumLogo />
+              Medium
+            </a>
+          </li>
+        </ul>
+      </div>
+  
+      <div>
+        <h1>About</h1>
+        <p>Project used for the purpose of studying the use of React Hooks.</p>
+      </div>
+    </footer>
   </body>
 </html>

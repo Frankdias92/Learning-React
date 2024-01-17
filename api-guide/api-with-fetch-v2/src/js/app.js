@@ -36,6 +36,7 @@ async function getAllPosts() {
 
   posts.map((post) => {
     const div = document.createElement('div')
+    div.setAttribute('class', 'item-wrapper')
     const title = document.createElement('h2')
     const body = document.createElement('p')
     const link = document.createElement('a')
@@ -94,6 +95,7 @@ async function getPost(id) {
 
 function createComment(comment) {
   const div = document.createElement('div')
+  div.setAttribute('class', 'item-wrapper')
   const nameProfile = document.createElement('h2')
   const commentText = document.createElement('p')
 
