@@ -7,6 +7,14 @@ interface NewNoteProps {
   onNoteCreated: (content: string) => void;
 }
 
+declare global {
+  interface Window {
+    webkitSpeechRecognition: Window & typeof globalThis;
+  }
+}
+
+
+
 const SpeechRecognitionAPI =
   window.SpeechRecognition || window.webkitSpeechRecognition;
 
@@ -15,7 +23,7 @@ const speechRecognition = new SpeechRecognitionAPI();
 export function NewNoteCard({ onNoteCreated }: NewNoteProps) {
   const [isRecording, setIsRecording] = useState(false);
   const [shouldShowOnboarding, setShouldShowOnboarding] = useState(true);
-  const [content, setContent] = useState("");
+  const [content, setContent] = useState<string>("");
 
   function handleStartEditor() {
     setShouldShowOnboarding(false);
@@ -61,7 +69,7 @@ export function NewNoteCard({ onNoteCreated }: NewNoteProps) {
     speechRecognition.maxAlternatives = 1;
     speechRecognition.interimResults = true;
 
-    speechRecognition.onresult = (event) => {
+    speechRecognition.onresult = (event: HTMLFormElement) => {
       const transcription = Array.from(event.results).reduce((text, result) => {
         return text.concat(result[0].transcript);
       }, "");
@@ -69,7 +77,7 @@ export function NewNoteCard({ onNoteCreated }: NewNoteProps) {
       setContent(transcription);
     };
 
-    speechRecognition.onerror = (event) => {
+    speechRecognition.onerror = (event: HTMLFormElement) => {
       console.error(event);
     };
 
